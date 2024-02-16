@@ -1,0 +1,35 @@
+.container{
+    flex: 1;
+}
+.nav{
+    background-color: #001314;
+    padding: 0.1rem;
+    color: white;
+}
+.link{
+    margin-left: 1.5rem;
+    margin-top: 1rem;
+}
+.title{
+    font-size: 25px; 
+    font-weight: bold; 
+    margin-left: 2rem; 
+    margin-top: 1rem;
+    margin-right: 3rem;
+}
+.name{
+    font-size: 20px;
+    cursor: pointer;
+}
+.icon{
+    margin-left: 2rem; 
+    margin-top: 1rem;
+    font-size: 20px;
+    cursor: pointer;
+}
+.name:hover{
+    color: red;
+}
+.icon:hover{
+    color: red;
+}

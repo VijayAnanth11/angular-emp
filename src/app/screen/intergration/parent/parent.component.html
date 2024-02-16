@@ -1,0 +1,18 @@
+<!-- This is @input method -->
+<!-- <app-child [message]="currentMessage" [itum]="currentItem"></app-child> -->
+
+<!-- This is @ouput method -->
+<h2>Check</h2>
+<div>
+    <app-second (newItemEvent)="addItem($event)"></app-second>
+</div>
+
+<!-- <app-child [message]="currentMessage" [itum]="currentItem" (parentFuction)="parentFuction($event)"></app-child>
+<p>Name is : <span>{{name}}</span></p>
+<p>Input data is : <span>{{text}}</span></p> -->
+
+<!-- <div>
+    {{message}}
+</div> -->
+
+<!-- <app-first [message]="currentMessage"></app-first> -->

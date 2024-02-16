@@ -1,0 +1,156 @@
+<!-- //calendar -->
+<div class="container" style="display: none;">
+    <div class="card">
+        <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+</div>
+
+<!-- //toggle button -->
+<button (click)="enableDisableRule()" [ngClass]="{'green' : toggle, 'red': !toggle}" style="display: none;">
+    {{status}}
+</button>
+<!-- toggle button styles -->
+<style>
+    .container {
+        padding: 10px;
+    }
+
+    full-calendar {
+        width: 465px !important;
+    }
+
+    /* //For Toggle */
+    .green {
+        background-color: green;
+    }
+
+    .red {
+        background-color: red;
+    }
+</style>
+
+<!-- //ngIf hide and show after click -->
+<div style="display: none;">
+    <div class="canceloption" *ngIf="div1" (click)="cancel()">
+        Clicked Button 1
+    </div>
+    <div class="canceloption" *ngIf="div2" (click)="cancel()">
+        Clicked Button 2
+    </div>
+    <div class="canceloption" *ngIf="div3" (click)="cancel()">
+        Clicked Button 3
+    </div>
+    <button (click)="div1Function()">Button 1</button>
+    <button (click)="div2Function()">Button 2</button>
+    <button (click)="div3Function()">Button 3</button>
+</div>
+
+<!-- //Drop down choose -->
+<div class="container mt-5" style="display: none;">
+    <div class="row custom-wrapper">
+        <h2 class="mb-3 text-center">Angular Select Dropdown Examle</h2>
+
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit2()">
+            <div class="d-grid">
+
+                <select class="custom-select mb-3" (change)="changeCity($event)" formControlName="cityName">
+                    <option *ngFor="let city of City" [ngValue]="city">
+                        {{ city }}
+                    </option>
+                </select>
+                <select class="custom-select mb-3" (change)="changeCity2($event)" formControlName="cityName2">
+                    <option *ngFor="let city of City2" [ngValue]="city">
+                        {{ city }}
+                    </option>
+                </select>
+
+                <button type="submit" class="btn btn-danger btn-lg btn-block">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- //Form data submit -->
+<div class="container" style="display: none;">
+    <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+        <div class="form-group">
+            <label for="form">name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="data.name" required>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+
+<!-- //fix today date in calendar -->
+<div class="form-group" style="display: none;">
+    <label>Date:</label>
+    <div class="input-group">
+        <input type="date" class="form-control col-md-8" formControlName="(new Date()).toISOString().substring(0,10)" />
+    </div>
+</div>
+
+<!-- //date choose -->
+<div class="form-group" style="display: none;">
+    <label for="rank" class="cols-sm-2 control-label">Date</label>
+    <div class="cols-sm-10">
+        <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+            <input type="date" id="txtDate" required="Required" class="form-control" name="txtDate"
+                placeholder="Select suitable date" />
+        </div>
+    </div>
+</div>
+
+<!-- next and previous options for table pagination -->
+<div style="display: none;">
+
+    <h1>Check</h1>
+    <table>
+        <!-- Table header here -->
+        <tbody>
+            <tr *ngFor="let item of displayedItems()">
+                <!-- Display item details here -->
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+        <span>{{ currentPage }} / {{ totalPages() }}</span>
+        <button (click)="nextPage()" [disabled]="currentPage === totalPages()">Next</button>
+    </div>
+</div>
+
+<!-- Get data from local store -->
+<div style="display: none;">
+    <table class="col-sm-12">
+        <thead class="col-sm-12">
+            <th>Col 1</th>
+            <th>Col 2</th>
+            <th>Col 3</th>
+        </thead>
+        <tbody class="col-sm-12">
+            <tr>
+                <td>1</td>
+                <td>check</td>
+                <td>check</td>
+            </tr>
+            <tr *ngFor="let item of records">
+                <td>chek</td>
+                <td>{{item.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <button (click)="addtomainrecord()" [disabled]="disablebutton">add</button>
+</div>
+
+
+
+
+
+
+
+
+

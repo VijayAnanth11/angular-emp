@@ -1,0 +1,83 @@
+<div class="container mt-2">
+    <div class="add">
+        <div class="card">
+            <h4>Add General Information</h4>
+
+            <form [formGroup]="Employeeformgroup" (ngSubmit)="onsubmit()">
+
+                <div class="form-group mb-2">
+                    <label>Employee ID</label>
+                    <input type="text" formControlName="empId" class="form-control" id="empId">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label>Name</label>
+                    <input type="text" formControlName="empName" class="form-control" id="empName">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label>Address</label>
+                    <input type="text" formControlName="empAddress" class="form-control" id="empAddress">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label>Contact Number</label>
+                    <input type="text" formControlName="empContact" class="form-control" id="empContact">
+                </div>
+
+                <div class="form-group mb-2">
+                    <label>Salary</label>
+                    <input type="text" formControlName="empSalary" class="form-control" id="empSalary">
+                </div>
+
+                <div class="form-group ">
+                    <label>Active</label>
+                    <input type="text" formControlName="isActive" class="form-control" id="isActive">
+                </div>
+
+                <button type="submit" class="btn btn-success mt-2">Save</button>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="card">
+            <h4>Employee General Information Table</h4>
+            <div class="alert alert-info" *ngIf="EmployeeArray.length == 0">
+                No Employees Found
+            </div>
+            <table class="table" *ngIf="EmployeeArray.length > 0">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Contact Number</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Active</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let EmployeeItem of EmployeeArray">
+                        <td>{{EmployeeItem.id }}</td>
+                        <td>{{EmployeeItem.empId }}</td>
+                        <td>{{EmployeeItem.empName }}</td>
+                        <td>{{EmployeeItem.empAddress }}</td>
+                        <td>{{EmployeeItem.empContact }}</td>
+                        <td>{{EmployeeItem.empSalary }}</td>
+                        <td>{{EmployeeItem.isActive }}</td>
+                        <td>
+                            <button type="button" class="btn btn-success"
+                                (click)="setUpdate(EmployeeItem)">Edit</button>
+                            <button type="button" class="btn btn-danger"
+                                (click)="setDelete(EmployeeItem.id)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

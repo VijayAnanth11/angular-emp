@@ -1,0 +1,19 @@
+<!-- <app-mat-table></app-mat-table>
+<router-outlet></router-outlet> -->
+<div>
+    <table class="col-sm-12">
+        <thead class="col-sm-12">
+            <tr>
+                <th>Check 1</th>
+                <th>Check 2</th>
+            </tr>
+        </thead>
+        <tbody class="col-sm-12">
+            <tr *ngFor="let list of listArray">
+                <td>{{list.id}}</td>
+                <td>{{list.name}}</td>
+                <button (click)="addtomainrecord(list)" [disabled]="list.disablebutton">add</button>
+            </tr>
+        </tbody>
+    </table>
+</div>
